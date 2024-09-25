@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace proTaxi.Domain.Base
+﻿namespace proTaxi.Domain.Base
 {
-    internal class AuditEntity
+    public class AuditEntity : BaseEntity
     {
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime? ModifiedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public string ModifiedBy { get; set; }
     }
 }

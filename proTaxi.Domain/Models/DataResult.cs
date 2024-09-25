@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace proTaxi.Domain.Models
+﻿namespace proTaxi.Domain.Models
 {
-    internal class DataResult
+    public class DataResult<TData>
     {
+        public DataResult() 
+        { 
+            this.Success = true;
+        }
+        public bool Success { get; set; }
+        public string Message { get; set; }
+        public TData Result { get; set; }
+
     }
 }
