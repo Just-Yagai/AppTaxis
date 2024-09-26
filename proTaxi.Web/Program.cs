@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using proTaxi.Persistence.Context;
+using proTaxi.Persistence.Interfaces;
+using Taxi.Persistence.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<TaxiDb>(options =>
+                                          options.UseSqlServer(builder.Configuration.GetConnectionString("TaxiDb")));
+
+builder.Services.AddTransient<ITaxisRepository, TaxiRepository>();
 
 var app = builder.Build();
 
